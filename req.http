@@ -1,0 +1,123 @@
+### Get all Courses
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/users
+###
+GET http://localhost:3000/users/info
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZnVsbG5hbWUiOiJKYW5lIFNtaXRoIiwiZW1haWwiOiJqYW5lQGV4YW1wbGUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkRGRMakEzR0FnWnp6a2dwemlQU25VT3VGZngyRkVBVEJpWmg0NHJEajdRSkpuc1c0VS5qWDYiLCJpc192ZXJpZmllZCI6MSwiaXNfYWRtaW4iOjEsImNyZWF0ZWRfYXQiOiIyMDIzLTA1LTMwVDIzOjU3OjQzLjAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyMy0wNi0wMVQwMDozOToxNS4wMDBaIiwiaWF0IjoxNjg1NjA2MzE1LCJleHAiOjE2ODU2MDk5MTV9.qgWGdaAEG8Qx4_K2ell8029cJVaVnseJrNDp1SL7isE"
+
+###
+GET http://localhost:3000/categories
+
+### POST Course
+POST http://localhost:3000/course/
+Content-Type: application/json
+
+{
+  "course_title": "Course 10",
+  "course_description": "Description for Course 10",
+  "course_price": 29.99,
+  "course_is_free": false,
+  "category_name": "Category 3",
+  "subcategory_name": "Subcategory 4",
+  "topics": [
+    {
+      "topic_title": "Topic 2",
+      "subtopics": [
+        {
+          "subtopic_title": "Subtopic 1",
+          "files": [
+            {
+              
+              "file_name": "File 4",
+              "file_path": "/path/to/file3"
+            },
+            {
+             
+              "file_name": "File 5",
+              "file_path": "/path/to/file2"
+            },
+            {
+              
+              "file_name": "File 6",
+              "file_path": "/path/to/file1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "topic_title": "Topic 1",
+      "subtopics": [
+        {
+          "subtopic_title": "Subtopic 1",
+          "files": [
+            {
+              
+              "file_name": "File 3",
+              "file_path": "/path/to/file3"
+            },
+            {
+             
+              "file_name": "File 2",
+              "file_path": "/path/to/file2"
+            },
+            {
+              
+              "file_name": "File 1",
+              "file_path": "/path/to/file1"
+            }
+          ]
+        },
+        {
+          "subtopic_title": "Subtopic 2"
+        }
+      ]
+    }
+  ]
+}
+
+### PUT Course
+PUT http://localhost:3000/course/3
+Content-Type: application/json
+
+{ "title": "Course 4", "description": "this is description", "category_name": "Category 1", "subcategory_name": "Subcategory 1" }
+
+
+### get user payment
+GET http://localhost:3000/payment/1
+
+### get all orders
+GET http://localhost:3000/order/
+
+### get User orders
+GET http://localhost:3000/order/1
+
+
+### sign user
+POST http://localhost:3000/sign-up
+Content-Type: application/json
+
+{
+  "email":"yuktasaraiya@gmail.com",
+  "fullname":"yukta saraiya",
+  "password":"test"
+}
+### login user
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email":"yuktasaraiya@gmail.com",
+  "password":"asd"
+}
+
+###
+POST http://localhost:3000/verfiy-otp
+Content-Type: application/json
+
+{
+  "email":"yuktasaraiya@gmail.com",
+  "otp":123123
+}
