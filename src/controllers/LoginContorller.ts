@@ -44,6 +44,19 @@ export const signUp = async (req: Request, res: Response) => {
   }
 };
 
+export const resendOtp = async (req: Request, res: Response) => {
+  try {
+    const { email } = req.body;
+    const signUpUser = await prisma.user.findUnique({ where: { email: email } });
+    await prisma.otp.delete({ where: { email: email } });
+    const otp = await generateOTP(signUpUser?.email!);
+    await otpVerificationMail(email, otp);
+  } catch (error) {
+    const err = error as Error;
+    res.status(200).json({ message: err.message });
+  }
+};
+
 export const verifyOtp = async (req: Request, res: Response) => {
   try {
     const { email, otp } = req.body;
